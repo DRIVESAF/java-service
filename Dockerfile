@@ -1,14 +1,8 @@
-# 构建阶段
-FROM openjdk:17-slim AS build
-ENV HOME=/usr/app
-RUN mkdir -p $HOME
-WORKDIR $HOME
-ADD . $HOME
-RUN --mount=type=cache,target=/root/.m2 ./mvnw -f $HOME/pom.xml clean package
+ Check failure on line 2 in .github/workflows/build-docker.yml
 
-# 打包阶段
-FROM openjdk:17-slim
-ARG JAR_FILE=/usr/app/target/*.jar
-COPY --from=build $JAR_FILE /app/runner.jar
-EXPOSE 8081
-ENTRYPOINT java -jar /app/runner.jar
+
+GitHub Actions
+/ .github/workflows/build-docker.yml
+Invalid workflow file
+
+You have an error in your yaml syntax on line 2
